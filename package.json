@@ -1,6 +1,7 @@
 {
-  "name": "catodoro",
-  "displayName": "catodoro",
+  "name": "learn_lamdba_vscode_extensions",
+  "displayName": "learn_lamdba_vscode_extensions",
+  "publisher": "idontsudo",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -11,6 +12,12 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "activationEvents": [
+      "onUri"
+    ],
+    "uriHandler": {
+      "id": "learn_lamdba_vscode_extensions"
+    },
     "viewsContainers": {
       "activitybar": [
         {
@@ -46,6 +53,14 @@
       {
         "command": "learn_lambda.SyncTask",
         "title": "Sync Task"
+      },
+      {
+        "command": "learn_lambda.LogOut",
+        "title": "Log out"
+      },
+      {
+        "command": "extension.showPanel",
+        "title": "Показать мою консоль"
       }
     ]
   },
@@ -69,6 +84,9 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "axios": "^1.11.0"
+    "axios": "^1.11.0",
+    "mobx": "^6.13.7",
+    "mobx-preact": "^3.0.0",
+    "ts-pattern": "^5.8.0"
   }
 }

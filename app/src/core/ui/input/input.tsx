@@ -6,7 +6,7 @@ export const InputV2: React.FC<{
   initialValue?: string;
 
   label?: string;
-   
+
   bgColor?: string;
   solidColor?: string;
   fontSize?: number;
@@ -16,7 +16,6 @@ export const InputV2: React.FC<{
   initialValue,
   label,
 
- 
   bgColor,
   solidColor,
   fontSize,
@@ -32,11 +31,15 @@ export const InputV2: React.FC<{
   useEffect(() => {
     ref.current?.addEventListener("focus", () => {
       setFocus(true);
-      console.log("      setFocus(true);");
     });
 
     ref.current?.addEventListener("blur", () => {
       setFocus(false);
+    });
+    const editableDiv = document.querySelector("div[contenteditable=true]");
+
+    ref.current?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") e.preventDefault();
     });
   });
   const getDisplay = () => {
@@ -57,18 +60,17 @@ export const InputV2: React.FC<{
           style={{
             position: "absolute",
             wordWrap: "normal",
-            top: 19,
+            top: 25,
             left: 10,
             pointerEvents: "none",
             display: display,
-            color:'#5F7E97'
+            color: "black",
           }}
           text={label}
-         
         />
       </div>
       <TextV2
-        color="#5F7E97"
+        color="black"
         currentRef={ref}
         onChange={(text) => {
           setValue(text);
@@ -77,17 +79,21 @@ export const InputV2: React.FC<{
         text={initialValue}
         isEditable={true}
         style={{
-          border: `1.5px solid ${solidColor ?? "#6B6B6B"}`,
-          borderRadius: 4,
-          height: height ?? 40,
-          // background: bgColor ?? "#EFF4FB",
-          paddingTop: 19,
-          paddingLeft: 10,
-          overflow: "auto",
-          fontSize: fontSize,
+          // display: "flex",
+          top: 30,
+          width: 297,
+          height: 40,
+          background: "#FFFFFF",
+          border: "1px solid #121212",
+          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          borderRadius: 5,
+          paddingTop: 21,
+          // overflowY: "scroll",
+          whiteSpace: "nowrap",
+          textAlign: "left",
+          overflow: "clip",
         }}
       />
-       
     </div>
   );
 };

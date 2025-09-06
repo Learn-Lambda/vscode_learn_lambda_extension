@@ -1,6 +1,9 @@
 export enum IconType {
   bigLogo,
   play,
+  reset,
+  loader,
+  link,
 }
 
 export const Icon: React.FC<{
@@ -11,6 +14,77 @@ export const Icon: React.FC<{
 }> = ({ type, color, size, style }) => {
   const getIcon = (color: string | undefined): React.ReactNode => {
     switch (type) {
+      case IconType.link:
+        return (
+          <svg
+            width="23"
+            height="23"
+            viewBox="0 0 23 23"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.6737 2.46751C16.4757 0.647734 19.2513 0.500206 20.8731 2.138C22.4949 3.7758 22.3488 6.57869 20.5468 8.39846L17.9365 11.0345M9.12689 14C7.50509 12.3622 7.65117 9.55928 9.45319 7.7395L11.7692 5.40063"
+              stroke="#6B6B6B"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M12.9536 10C14.4596 11.5118 14.3239 14.0991 12.6506 15.7789L10.2268 18.2121L7.80299 20.6454C6.12969 22.3252 3.55237 22.4613 2.0464 20.9495C0.540431 19.4377 0.676091 16.8504 2.34939 15.1706L4.77323 12.7373"
+              stroke="#6B6B6B"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        );
+
+      case IconType.loader:
+        return (
+          <svg
+            style={{ height: size }}
+            fill="rgb(198, 198, 198)"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+              opacity=".25"
+            />
+            <path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z">
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                dur="0.75s"
+                values="0 12 12;360 12 12"
+                repeatCount="indefinite"
+              />
+            </path>
+          </svg>
+        );
+      case IconType.reset:
+        return (
+          <svg
+            width="35"
+            height="35"
+            viewBox="0 0 35 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.19052 3.04763C4.24785 5.86782 1 11.2831 1 17.381C1 26.428 8.33404 33.7621 17.381 33.7621C26.428 33.7621 33.7621 26.428 33.7621 17.381C33.7621 8.33404 26.428 1 17.381 1"
+              stroke="#C6C6C6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9.19052 11.2374V3.04688H1"
+              stroke="#C6C6C6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        );
+
       case IconType.play:
         return (
           <svg

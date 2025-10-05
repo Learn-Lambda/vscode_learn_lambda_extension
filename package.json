@@ -87,6 +87,7 @@
     "axios": "^1.11.0",
     "mobx": "^6.13.7",
     "mobx-preact": "^3.0.0",
+    "react-syntax-highlighter": "^15.6.6",
     "ts-pattern": "^5.8.0"
   }
 }
